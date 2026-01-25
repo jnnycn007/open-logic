@@ -2,6 +2,53 @@
 
 # Changelog
 
+## 4.3.0
+
+25-Jan-2026
+
+### Added Features
+
+- Added _olo_fix_cordic_rot_ and _olo_fix_cordic_vect_
+  - CORDIC algorithm for rotation and vectoring
+  - Supports pipelined and serial modes
+  - Contributed by: [obruendl](https://github.com/obruendl)
+
+- Added _olo_fix_bin_div_
+  - Binary divider for fixed-point numbers
+  - Contributed by: [obruendl](https://github.com/obruendl)
+
+- Added _olo_base_latency_comp_
+  - Latency compensation component
+  - Contributed by: [obruendl](https://github.com/obruendl)
+
+### Backward Compatible Changes
+
+- Various documentation improvements
+
+- Initialization improvement for _olo_base_cc_reset_
+  - Use reset value as initial value to improve synthesis on Altera Arria 10
+  - Contributed by: [LukiLeu](https://github.com/LukiLeu)
+
+- Improved resource control by adding more generics to _olo_base_delay_ and _olo_base_delay_cfg_
+  - Contributed by: [obruendl](https://github.com/obruendl)
+
+### Non Backward Compatible Changes
+
+- None
+
+### Bugfixes (Backward Compatible)
+
+- None
+
+### Reporters
+
+- None
+
+### Contributors
+
+- [obruendl](https://github.com/obruendl)
+- [LukiLeu](https://github.com/LukiLeu)
+
 ## 4.2.0
 
 09-Dec-2025
