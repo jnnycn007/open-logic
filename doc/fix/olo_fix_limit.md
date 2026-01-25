@@ -10,7 +10,7 @@
 ![Endpoint Badge](https://img.shields.io/endpoint?url=https://storage.googleapis.com/open-logic-badges/branches/olo_fix_limit.json?cacheSeconds=0)
 ![Endpoint Badge](https://img.shields.io/endpoint?url=https://storage.googleapis.com/open-logic-badges/issues/olo_fix_limit.json?cacheSeconds=0)
 
-VHDL Source: [olo_fix_limit](../../src/fix/vhdl/olo_fix_limit.vhd)
+VHDL Source: [olo_fix_limit](../../src/fix/vhdl/olo_fix_limit.vhd)<br />
 Bit-true Model: [olo_fix_limit](../../src/fix/python/olo_fix/olo_fix_limit.py)
 
 ## Description
@@ -33,7 +33,7 @@ For details about the fixed-point number format used in _Open Logic_, refer to t
 | HiLimFmt_g       | string  | "(1,1,1)" | Upper limit format<br />String representation of an _en_cl_fix Format_t_ (e.g. "(1,1,15)")<br />Default given only for the user not having to assign the generic if _UseFixedLimits_g=true_ |
 | ResultFmt_g      | string  | -         | Format of the result<br />String representation of an _en_cl_fix Format_t_ (e.g. "(0,1,15)") |
 | Round_g          | string  | "Trunc_s" | Rounding mode<br />String representation of an _en_cl_fix FixRound_t_. |
-| Saturate_g       | string  | "Sat_s"   | Saturation mode<br />String representation of an _en_cl_fix FixSaturate_t_. |
+| Saturate_g       | string  | "Warn_s"  | Saturation mode<br />String representation of an _en_cl_fix FixSaturate_t_. |
 | UseFixedLimits_g | boolean | false     | true: Use _FixedLimLo_g_ and _FixedLimHi_g_ as limits.<br />false: Use ports _In_LimLo_ and _In_LimHi_ as limits. |
 | FixedLimLo_g     | real    | 0.0       | Compile time set lower limit (only used if _UseFixedLimits_g=true_) |
 | FixedLimHi_g     | real    | 0.0       | Compile time set upper limit (only used if _UseFixedLimits_g=true_) |

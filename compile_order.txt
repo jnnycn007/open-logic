@@ -28,6 +28,7 @@ src/base/vhdl/olo_base_fifo_packet.vhd
 src/base/vhdl/olo_base_dyn_sft.vhd
 src/base/vhdl/olo_base_delay_cfg.vhd
 src/base/vhdl/olo_base_delay.vhd
+src/base/vhdl/olo_base_latency_comp.vhd
 src/base/vhdl/olo_base_decode_firstbit.vhd
 src/base/vhdl/olo_base_crc.vhd
 src/base/vhdl/olo_base_crc_check.vhd
@@ -67,7 +68,10 @@ src/fix/vhdl/olo_fix_neg.vhd
 src/fix/vhdl/olo_fix_mult.vhd
 src/fix/vhdl/olo_fix_limit.vhd
 src/fix/vhdl/olo_fix_from_real.vhd
+src/fix/vhdl/olo_fix_cordic_vect.vhd
+src/fix/vhdl/olo_fix_cordic_rot.vhd
 src/fix/vhdl/olo_fix_compare.vhd
+src/fix/vhdl/olo_fix_bin_div.vhd
 src/fix/vhdl/olo_fix_addsub.vhd
 src/fix/vhdl/olo_fix_add.vhd
 src/fix/vhdl/olo_fix_abs.vhd

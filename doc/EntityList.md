@@ -103,6 +103,7 @@ See [Conventions](./Conventions.md) for a description about TDM (time-division-m
 | [olo_base_crc_append](./base/olo_base_crc_append.md) | Append CRC to AXI4-Stream packets |
 | [olo_base_crc_check](./base/olo_base_crc_check.md) | Check CRC of AXI4-Stream packets and drop invalid packets |
 | [olo_base_rate_limit](./base/olo_base_rate_limit.md) | Rate limiter for AXI4-Stream interfaces - limits the data rate to a specified maximum value. |
+| [olo_base_latency_comp](./base/olo_base_latency_comp.md) | Latency compensator for AXI4-Stream interfaces - delays data bypassing a processing element to compensate for the latency |
 
 ## axi
 
@@ -195,3 +196,11 @@ be used. For deciding which option to use, the following considerations shall be
 | Entity                                          | Description                                                  |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | [olo_fix_limit](./fix/olo_fix_limit.md)         | Limit a value between an upper and a lower bound             |
+| [olo_fix_bin_div](./fix/olo_fix_bin_div.md)     | Binary division of two fixed point numbers                   |
+
+### CORDIC
+
+| Entity                                              | Description                                                  |
+| --------------------------------------------------- | ------------------------------------------------------------ |
+| [olo_fix_cordic_vect](./fix/olo_fix_cordic_vect.md) | CORDIC vectoring mode - cartesian to polar conversion |
+| [olo_fix_cordic_rot](./fix/olo_fix_cordic_rot.md)   | CORDIC rotating mode - polar to cartesian conversion |

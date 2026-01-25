@@ -10,7 +10,7 @@
 ![Endpoint Badge](https://img.shields.io/endpoint?url=https://storage.googleapis.com/open-logic-badges/branches/olo_fix_from_real.json?cacheSeconds=0)
 ![Endpoint Badge](https://img.shields.io/endpoint?url=https://storage.googleapis.com/open-logic-badges/issues/olo_fix_from_real.json?cacheSeconds=0)
 
-VHDL Source: [olo_fix_from_real](../../src/fix/vhdl/olo_fix_from_real.vhd)
+VHDL Source: [olo_fix_from_real](../../src/fix/vhdl/olo_fix_from_real.vhd)<br />
 Bit-true Model: [olo_fix_from_real](../../src/fix/python/olo_fix/olo_fix_from_real.py)
 
 ## Description
@@ -36,11 +36,11 @@ For details about the fixed-point number format used in _Open Logic_, refer to t
 
 ## Generics
 
-| Name        | Type    | Default   | Description                                                  |
-| :---------- | :------ | --------- | :----------------------------------------------------------- |
-| ResultFmt_g | string  | -         | Format of the result<br />String representation of an _en_cl_fix Format_t_ (e.g. "(0,1,15)") |
-| Saturate_g  | string  | "Sat_s"   | Saturation mode<br />String representation of an _en_cl_fix FixSaturate_t_. |
-| Value_g     | real    | 0.0       | Generic to be used for compile-time static inputs. |
+| Name        | Type    | Default     | Description                                                  |
+| :---------- | :------ | ----------- | :----------------------------------------------------------- |
+| ResultFmt_g | string  | -           | Format of the result<br />String representation of an _en_cl_fix Format_t_ (e.g. "(0,1,15)") |
+| Saturate_g  | string  | "SatWarn_s" | Saturation mode<br />String representation of an _en_cl_fix FixSaturate_t_. |
+| Value_g     | real    | 0.0         | Generic to be used for compile-time static inputs. |
 
 ## Interfaces
 

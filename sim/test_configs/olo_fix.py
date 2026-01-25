@@ -261,3 +261,152 @@ def add_configs(olo_tb):
         for SatReg in ['NO', 'AUTO']:
             named_config(tb, default_generics | {'RoundReg_g': RoundReg, 'SatReg_g': SatReg},
                          pre_config=cosim, short_name=f'diff-regs-RoundReg={RoundReg}-SatReg={SatReg}')
+
+    ### olo_fix_cordic_rot ###
+    tb = olo_tb.test_bench('olo_fix_cordic_rot_tb')
+    #Test formats and round/sat modes
+    default_generics = {
+        'InMagFmt_g': '(0, 0, 16)',
+        'InAngFmt_g': '(0, 0, 15)',
+        'OutFmt_g': '(1, 2, 16)',
+        'IntXyFmt_g': '(1, 2, 22)',
+        'IntAngFmt_g': '(1, -2, 23)',
+        'Iterations_g': '21',
+        'GainCorrCoefFmt_g': '(0, 0, 17)',
+        'Round_g': 'NonSymPos_s',
+        'Saturate_g': 'Sat_s',
+        'Mode_g' : 'PIPELINED'
+    }
+    cosim = olo_fix_cordic_rot.cosim.cosim
+
+    #Execute all simulations pipelined and non-pipelined
+    for Mode in ['PIPELINED', 'SERIAL']:
+        # General Check
+        generics = default_generics.copy()
+        generics['Mode_g'] = Mode
+        named_config(tb, generics, pre_config=cosim, short_name=f'default-General-Mode_g={Mode}')
+
+        # Check Auto Formats
+        generics = default_generics.copy()
+        generics['Mode_g'] = Mode
+        generics['IntXyFmt_g'] = 'AUTO'
+        generics['IntAngFmt_g'] = 'AUTO'
+        named_config(tb, generics, pre_config=cosim, short_name=f'default-AutoFmt-Mode_g={Mode}')
+
+        # Check no round/sat
+        generics = default_generics.copy()
+        generics['Mode_g'] = Mode
+        generics['Round_g'] = 'Trunc_s'
+        generics['Saturate_g'] = 'None_s'
+        named_config(tb, generics, pre_config=cosim, short_name=f'default-NoRoundSat-Mode_g={Mode}')   
+
+        # Check no Correction
+        generics = default_generics.copy()
+        generics['Mode_g'] = Mode
+        generics['GainCorrCoefFmt_g'] = 'NONE'
+        named_config(tb, generics, pre_config=cosim, short_name=f'default-NoGc-Mode_g={Mode}') 
+
+        # CheckLow Resolution
+        generics = default_generics.copy()
+        generics['Mode_g'] = Mode
+        generics['IntXyFmt_g'] = '(1,0,8)'
+        generics['IntAngFmt_g'] = '(1,-2,8)'
+        generics['Iterations_g'] = '5'
+        generics['OutFmt_g'] = '(1,0,8)'
+        named_config(tb, generics, pre_config=cosim, short_name=f'default-LowRes-Mode_g={Mode}')   
+
+    ### olo_fix_cordic_vect ###
+    tb = olo_tb.test_bench('olo_fix_cordic_vect_tb')
+    #Test formats and round/sat modes
+    default_generics = {
+        'InFmt_g': '(1, 0, 16)',
+        'OutAngFmt_g': '(0, 0, 15)',
+        'OutMagFmt_g': '(0, 0, 16)',
+        'IntXyFmt_g': '(1, 2, 22)',
+        'IntAngFmt_g': '(1, -1, 23)',
+        'Iterations_g': '21',
+        'GainCorrCoefFmt_g': '(0, 0, 17)',
+        'Round_g': 'NonSymPos_s',
+        'Saturate_g': 'Sat_s',
+        'Mode_g' : 'PIPELINED'
+    }
+    cosim = olo_fix_cordic_vect.cosim.cosim
+
+    #Execute all simulations pipelined and non-pipelined
+    for Mode in ['PIPELINED', 'SERIAL']:
+        # General Check
+        generics = default_generics.copy()
+        generics['Mode_g'] = Mode
+        named_config(tb, generics, pre_config=cosim, short_name=f'default-General-Mode_g={Mode}')
+
+        # Check Auto Formats
+        generics = default_generics.copy()
+        generics['Mode_g'] = Mode
+        generics['IntXyFmt_g'] = 'AUTO'
+        generics['IntAngFmt_g'] = 'AUTO'
+        named_config(tb, generics, pre_config=cosim, short_name=f'default-AutoFmt-Mode_g={Mode}')
+
+        # Check no round/sat
+        generics = default_generics.copy()
+        generics['Mode_g'] = Mode
+        generics['Round_g'] = 'Trunc_s'
+        generics['Saturate_g'] = 'None_s'
+        named_config(tb, generics, pre_config=cosim, short_name=f'default-NoRoundSat-Mode_g={Mode}')   
+
+        # Check no Correction
+        generics = default_generics.copy()
+        generics['Mode_g'] = Mode
+        generics['GainCorrCoefFmt_g'] = 'NONE'
+        named_config(tb, generics, pre_config=cosim, short_name=f'default-NoGc-Mode_g={Mode}') 
+
+        # CheckLow Resolution
+        generics = default_generics.copy()
+        generics['Mode_g'] = Mode
+        generics['IntXyFmt_g'] = '(1,0,8)'
+        generics['IntAngFmt_g'] = '(1,-1,8)'
+        generics['Iterations_g'] = '5'
+        generics['OutMagFmt_g'] = '(0,0,8)'
+        generics['OutAngFmt_g'] = '(0,0,8)'
+        named_config(tb, generics, pre_config=cosim, short_name=f'default-LowRes-Mode_g={Mode}')
+
+    ### olo_fix_bin_div ###
+    tb = olo_tb.test_bench('olo_fix_bin_div_tb')    
+    #Test formats and round/sat modes
+    default_generics = {
+        'NumFmt_g': '(0, 2, 10)',
+        'DenomFmt_g': '(1, 3, 4)',
+        'OutFmt_g': '(1, 8, 12)',
+        'Mode_g' : 'SERIAL',
+        'Round_g': 'NonSymPos_s',
+        'Saturate_g': 'Sat_s'
+    }
+    cosim = olo_fix_bin_div.cosim.cosim
+
+    for Mode in ['SERIAL', 'PIPELINED']:
+
+        default_generics['Mode_g'] = Mode
+
+        # General
+        named_config(tb, default_generics, pre_config=cosim, short_name=f'default-{Mode}')
+
+        # Signed/Unsigned commbinations
+        for num_name, num_fmt in {"Signed": '(1,2,10)', "Unsigned": '(0,2,10)'}.items():
+            for denom_name, denom_fmt in {"Signed": '(1,3,4)', "Unsigned": '(0,3,4)'}.items():
+                named_config(tb, default_generics  | {'NumFmt_g': num_fmt, 'DenomFmt_g': denom_fmt},
+                                pre_config=cosim,
+                                short_name=f'{Mode}-SignCheck-NumFmt_g={num_name}-DenomFmt_g={denom_name}')
+                
+        # Test unsigned output
+        named_config(tb, default_generics  | {'OutFmt_g': '(0,8,12)'},
+                        pre_config=cosim,
+                        short_name=f'{Mode}-UnsignedOutput')
+                
+        # Test no rounding
+        named_config(tb, default_generics  | {'Round_g': 'Trunc_s'},
+                        pre_config=cosim,
+                        short_name=f'{Mode}-NoRounding')
+        
+        # Test no saturation
+        named_config(tb, default_generics  | {'Saturate_g': 'None_s'},
+                        pre_config=cosim,
+                        short_name=f'{Mode}-NoSaturation')
